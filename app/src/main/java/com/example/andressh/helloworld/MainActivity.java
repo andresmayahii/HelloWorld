@@ -1,9 +1,13 @@
 package com.example.andressh.helloworld;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -20,6 +24,31 @@ public class MainActivity extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    public void abrirActividad(View v){
+        Intent intent = new Intent(this, EditActivity.class);
+
+        intent.putExtra("mensaje","Este mensaje es de la primera actividad");
+
+        startActivityForResult(intent,31);
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if(requestCode == 31) {
+            if(resultCode == 200) {
+                Toast.makeText(this,"200 todo bien", Toast.LENGTH_SHORT).show();
+            } else if( resultCode == 500) {
+                Toast.makeText(this,"500 error de servidor", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        String mResultado = data.getExtras().getString("resultado");
+        ((TextView) findViewById(R.id.textView2)).setText(mResultado);
+
     }
 
     @Override

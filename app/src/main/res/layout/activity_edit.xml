@@ -3,19 +3,20 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.andressh.helloworld.EditActivity">
 
     <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
+        android:id="@+id/textViewEdit" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Iniciar actividad editar"
-        android:id="@+id/button2"
-        android:onClick="abrirActividad"
-        android:layout_below="@+id/textView2"
+        android:text="New Button"
+        android:id="@+id/button"
+        android:layout_below="@+id/textViewEdit"
+        android:onClick="regresarResultado"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
